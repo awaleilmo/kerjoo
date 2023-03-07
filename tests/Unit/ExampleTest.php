@@ -13,6 +13,8 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $this->assertTrue(true);
+        $response = $this->json('GET', '/api/login', ['email' => 'test@test.com', 'password' => 'test1234']);
+
+        $response->assertStatus(200);
     }
 }
